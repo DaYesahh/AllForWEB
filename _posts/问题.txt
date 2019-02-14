@@ -1,0 +1,29 @@
+# 知识点
+## 步骤后面自己总结
+## 小知识
+- 引入ico图标，它不是iconfont字体
+ + https://www.jd.com/favicon.ico 即可查看
+ + 记住，favicon.ico不可以放在images中，要放在外面，这是为了兼容性
+ + 引入方式，放在meta下面即可，或者放入head标签中间
+ + `<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />`
+ + 后面的`type="image/x-icon"`属性可以省略
+ + 转换ico图标
+  - 我们可以自己做图片，转换为ico图标，以便放到我们站点里面. http://www.bitbug.net/
+- 引入字体图标
+ + 网站`https://icomoon.io`
+- box-shadow 怎么用？？？
+- `input{border:0}` ????
+- `<input type="text" name="" placeholder="扫描仪">`
+- `<a href="#"></a>`和`<a href="javascript;"></a>`之间的区别
+- `#f10215` 京东红
+- `text-align:center`这个作用是？
+- 加了绝对定位、固定定位、浮动的行内元素，可以不用转换，直接给高度和宽度?
+- `line-height`作用是？
+ + 对于一个高度固定的div，设置line-height为其高度等同，即可使单排文字内容上下垂直居中。
+- 下方用了dl dt dd系列，复习其特点
+- index.css和base.css，分基础和公共
+- `cursor`的用法要复习
+- `white-space: nowrap;/*强制一行*/
+  overflow: hidden;
+  text-overflow: ellipsis;/*超出部分省略号*/`
+- 动画,这个动画有点卷珠帘的感觉，因为是给盒子加动画，而不是直接给img家动画
