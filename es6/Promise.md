@@ -222,6 +222,51 @@ p.then(null, function (s) {
 // 出错了
 ```
 
+## 应用
+
+- 加载图片，当图片加载完成，promise状态发生变化。
+
+  ```javascript
+  const preloadImage = function(path){
+      return new Promise(function(resolve,reject){
+          const image = new Image();
+          image.onload = resolve;
+          image.onerror = reject;
+          image.src = path;
+      })
+  }
+  ```
+
+- `Generator函数与Promise的结合`
+
+  ```javascript
+  ？？？？？？？？
+  ```
+
+- `Promise.try()`
+
+   ```javascript
+如果不想区分同步函数还是异步操作，采用Promise来处理，不管是否包含异步（关于同步，可以选择同步变异步，也可以选择同步依旧是同步），均可用then来指定下一步流程，用catch方法处理f抛出的错误。
+// 同步变异步
+const f = () => console.log('now');
+Promise.resolve().then(f);
+console.log('next');
+// next
+// now
+
+// 同步依旧为同步一
+const f = () => console.log('now');
+(async () => f())(); // 采用匿名函数和async
+console.log('next');
+// now
+// next
+// 异步为异步
+const f = () => console.log('now');
+(async () => f())().then();
+console.log('next');
+
+   ```
+
 
 
 ## 其他异步与promise的关系
