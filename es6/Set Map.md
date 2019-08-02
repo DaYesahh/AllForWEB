@@ -3,6 +3,7 @@
 ## Set
 
 ```javascript
+typeof set // object
 类似于数组
 所有成员的值是唯一的（）
 Set()是一个构造函数
@@ -120,7 +121,7 @@ if(set.has("width")) {
   }
   ```
 
-- `Set.prototype.entries()`：返回键值对的遍历器，输出为数组。
+- `Set.prototype.entries()`：返回键值对的遍历器，输出为数组，因为set只有键值，没有键名，则数组有两项，均为键值。
 
   ```javascript
   for (let items of set.entries()) {
@@ -133,9 +134,108 @@ if(set.has("width")) {
   }
   ```
 
-- `Set.prototype.forEach()`：使用回调函数遍历每个成员
+- `Set.prototype.forEach()`：使用回调函数遍历每个成员，**参数就是回调函数**
 
-## Map
+  ```javascript
+  let set = new Set([1,4,9]);
+  set.forEach((value,key) => console.log(key + " " + value));
+  // 1 1
+  // 4 4
+  // 9 9
+  // forEach方法还可以有第二个参数，表示绑定处理函数内部的this对象。
+  ```
+
+#### 遍历的应用
+
+`...`内部使用`for...of`循环，所以也可以用于`Set`结构。
+
+```javascript
+let set = new Set(['red','green','blue']);
+let arr = [...set] // ['red','green','blue']
+```
+
+- 数组去重，已知，查看《数组去重整理》
+- 数组的函数也可以间接用于`Set`结构。
+
+```javascript
+let set = new Set([1,2,3])
+set = new Set([...set].map(x = x*2));
+// 返回Set结构:{2,4,6}
+let set = new Set([1,2,3,4,5]);
+set = new Set([...set].filter(x => (x%2) == 0));
+```
+
+- 并集、交集和差集
+
+```javascript
+let a = new Set([1,2,3])
+let b = new Set([4,3,2])
+
+// 并集
+let union = new Set([...a,...b])
+// Set {1,2,3,4}
+
+// 交集
+let intersect = new Set([...a].filter(x => b.has(x)))
+// Set {2,3}
+
+// 差集
+let difference = new Set([...a].filter(x => !b.has(x)))
+// Set {1}
+```
+
+- 直接改变原来的表结构，现在还没有，可以采用间接的，直接赋值即可
+
+### `WeakSet`
+
+- 特点
+- + 不重复的值的集合
+  + `WeakSet`构造函数
+  + 成员只能是对象，不可是其他类型的值
+  + `WeakSet`中的对象都是弱引用，垃圾回收机制不考虑`WeakSet`对该对象的引用，所以当其他对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用的内存，不考虑该对象还存在于`WeakSet`之中
+  + 为了垃圾回收机制，在`WeakSet`中适合临时存放一组对象以及存放跟对象绑定的信息。当对象在外部消失，在`WeakSet`中的引用就会消失。
+  + ES6不可遍历，因为`WeakSet`内部成员的数量取决于垃圾回收机制的运行，但是垃圾回收机制的运行情况不清楚，所以不确定其内部元素。
+- 语法
+
+- + 参数是具有`Iterator`接口的对象，注意，对象是本质是对象，比如`Array`、`Set`等。
+
+  + 参数的元素也需要是对象，因为WeakSet的规则是将参数的元素作为元素。如下：
+
+    ```javascript
+    const a = [[1,2],[3,4]];
+    const ws1 = new WeakSet(a);
+    console.log(ws1) // WeakSet { [items unknown] }
+    
+    const b = [3,4];
+    const ws2 = new WeakSet(b);
+    console.log(ws2) // 报错
+    ```
+
+#### 构造方法
+
+- **WeakSet.prototype.add(value)**：向 WeakSet 实例添加一个新成员。
+- **WeakSet.prototype.delete(value)**：清除 WeakSet 实例的指定成员。
+- **WeakSet.prototype.has(value)**：返回一个布尔值，表示某个值是否在 WeakSet 实例之中。
+- 注意，没有`size`属性，无法获取长度
+
+#### 应用
+
+- 存储DOM节点，而不用担心节点从文档中删除，从而引发内存泄漏。
+- 实例调用的例子：保证实例只可以在本身调用
+```javascript
+class Foo{
+    constructor(){
+        foos.add(this)
+    }
+    method(){
+        if(!foos.has(this)){
+            throw new TypeError('Foo.prototype.method 只能在Foo的实例上调用')
+        }
+    }
+}
 
 
 
+
+
+```
