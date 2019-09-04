@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>dialog</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    class Dialog{
+    	constructor(){
+    		this.x = 0;
+    		this.y = 0;
+    		this.moving = false;
+    		this.lastX = 0;
+    		this.lastY = 0;
+    	}
+    	open(){
+    		console.log("ddd")
+    		let div = document.createElement("div");
+    		div.style = `width:100px;height:100px;background:red;position:absolute;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;`;
+    		// 添加监听事件
+    		div.id = "dia";
+    		// 鼠标点击下去的事件
+    		div.addEventListener("mousedown",this.mousedown.bind(this))
+    		// 鼠标拖拽事件
+    		div.addEventListener("mousemove",this.mousemove.bind(this))
+    		// 鼠标抬起事件
+    		div.addEventListener("mouseup",this.mouseup.bind(this))
+    		 document.body.appendChild(div)
+    	}
+    	mousedown(event){
+           this.x = event.clientX;
+           this.y = event.clientY;
+           console.log("X:"+this.x)
+           this.moving = true;
+
+    	}
+    	mousemove(event){
+           if(this.moving){ 
+           	console.log(event.target)
+               event.target.style.transform = `translate(${event.clientX - this.x + this.lastX}px,${event.clientY - this.y + this.lastY}px)`
+           }
+    	}
+    	mouseup(event){
+           this.lastX = event.clientX - this.x + this.lastX; 
+           this.lastY = event.clientY - this.y + this.lastY;
+           this.moving = false;
+           console.log(this.moving)
+    	}
+
+    }
+    let dia = new Dialog();
+    dia.open();
+</script>
+</body>
+</html>

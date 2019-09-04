@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>d</title>
+</head>
+<body>
+<script type="text/javascript">
+	function mySetInterval(fn,time){
+	function inner(){
+		fn();
+		setTimeout(inner,time);
+	}
+	inner()
+}
+
+console.log("***********************************")
+mySetInterval(() => {console.log(new Date().getTime())}, 1000)
+
+setInterval(() => {console.log(new Date().getTime())}, 1000)
+console.log("***********************************")
+
+</script>
+</body>
+</html>
