@@ -28,14 +28,14 @@ function f(){
         var tmp = 'hello wolrd';
     }
 }
-f(); // undefined
+f(); // undefined，如果没有声明tmp，则是报错
 // 上述f()中存在变量提升，应该是如下：
 
 function f(){
     var tmp; // 只声明但未定义
     console.log(tmp);
     if(false) {
-        var tmp = "hello world";
+        tmp = "hello world";
     }
 }
 // 所以真实情况是，局部变量tmp覆盖了全局变量tmp，输出为undefined
