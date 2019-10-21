@@ -1,9 +1,10 @@
-# Set Map
+# Set
 
 ## Set
 
 ```javascript
 typeof set // object
+typeof map // object
 类似于数组
 所有成员的值是唯一的（）
 Set()是一个构造函数
@@ -48,7 +49,7 @@ console.log(set) // Set {NaN}
   set.add({})
   set.size // 1
   set.add({});
-  set.size // 2 则{}被视为两个值
+  set.size // 2 则{}被视为两个值，因为其地址不同，和map类似，根据地址来判断值是否相等
   ```
 
 ### Set实例的属性和方法
@@ -191,7 +192,7 @@ let difference = new Set([...a].filter(x => !b.has(x)))
 - 特点
 - + 不重复的值的集合
   + `WeakSet`构造函数
-  + 成员只能是对象，不可是其他类型的值
+  + 成员只能是**对象**，不可是其他类型的值
   + `WeakSet`中的对象都是弱引用，垃圾回收机制不考虑`WeakSet`对该对象的引用，所以当其他对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用的内存，不考虑该对象还存在于`WeakSet`之中
   + 为了垃圾回收机制，在`WeakSet`中适合临时存放一组对象以及存放跟对象绑定的信息。当对象在外部消失，在`WeakSet`中的引用就会消失。
   + ES6不可遍历，因为`WeakSet`内部成员的数量取决于垃圾回收机制的运行，但是垃圾回收机制的运行情况不清楚，所以不确定其内部元素。
