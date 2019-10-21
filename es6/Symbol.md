@@ -2,7 +2,7 @@
 
 - ```ES5```的对象属性名都是字符串
 - ```Symbol```，表示独一无二的值。
-- ```JS```语言的第七种数据类型。前六种是：```Undefined、Null、NaN、String、Boolean、Number、Object```。
+- ```JS```语言的第七种数据类型。前六种是：```Undefined、Null、String、Boolean、Number、Object```。
 - ```ES6```的对象属性名有两种类型
   + 字符串，点运算符后总是字符串
   + ```Symbol```类型，不可用点运算符，必须用**方括号**。

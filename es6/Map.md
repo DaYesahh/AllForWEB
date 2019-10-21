@@ -11,8 +11,8 @@
 // 普通对象
 const m = new Map();
 const o = {p:'Hello World'};
-m.set(o,'content')
-m.get(o)
+m.set(o,'content') // Map {{p:'Hello World'} => 'content'}
+m.get(o) 
 m.has(o)
 m.delete(o)
 
@@ -49,7 +49,7 @@ console.log(m)// Map {{p:'Hello world'} => 'content'}
 
 const m2 = new Map();
 const o2 = ['a','b']
-m2.set(o2)
+m2.set(o2)// set方法就只能是key value的格式
 console.log(m2) // Map { [ 'a', 'b' ] => undefined }
 
 const m3 = new Map([['a','b']])
@@ -77,7 +77,7 @@ console.log(m3) // Map {'a' => 'b'}
 
 - Map的键跟地址绑定，只要内存地址不一样，就视为两个键，解决了**同名属性碰撞**的问题
 
-- 简单类型的值判定方式为**只要两个值严格相等**，则视为相同的键：
+- 简单类型的值判定方式为**只要两个值严格相等**（严格相等就是===），则视为相同的键：
 - + `0`和`-0`则是相同的键
   + 布尔值`true`和字符串`true`则是不同的键
   + `undefined`和`null`也是两个不同的键
