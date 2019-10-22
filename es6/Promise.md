@@ -246,13 +246,14 @@ p.then(null, function (s) {
 - `Promise.try()`
 
    ```javascript
-如果不想区分同步函数还是异步操作，采用Promise来处理，不管是否包含异步（关于同步，可以选择同步变异步，也可以选择同步依旧是同步），均可用then来指定下一步流程，用catch方法处理f抛出的错误。
-// 同步变异步
-const f = () => console.log('now');
-Promise.resolve().then(f);
-console.log('next');
-// next
-// now
+   如果不想区分同步函数还是异步操作，采用Promise来处理，不管是否包含异步（关于同步，可以选择同步变异步，也可以选择同步依旧是同步），均可用then来指定下一步流程，用catch方法处理f抛出的错误。
+   // 同步变异步
+   const f = () => console.log('now');
+   Promise.resolve().then(f);
+   console.log('next');
+   // next
+   // now
+   ```
 
 // 同步依旧为同步一
 const f = () => console.log('now');
@@ -275,7 +276,7 @@ console.log('next');
 
 看如下代码：
 
-```javascript
+​```javascript
 const promise = new Promise(function (resolve, reject) {
   resolve('ok');
   setTimeout(function () { throw new Error('test') }, 0)
@@ -283,7 +284,7 @@ const promise = new Promise(function (resolve, reject) {
 promise.then(function (value) { console.log(value) });
 // ok
 // error，说明setTimeour在promise结束以后执行。
-```
+   ```
 
 如下代码：
 
