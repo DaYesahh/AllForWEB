@@ -16,3 +16,6 @@
 - `git reset --hard +上面git log查出来的最新的`然后就可以重置，重置暂存区，然后将重置的覆盖本地工作区
 - + `git reset --soft + 上面git log查出来的最新的`重置指针
   + `git reset --mixed + 上面git log的最新的`重置指针和暂存区
+- `git pull origin master`获取`origin`路径下的master分支的最新代码
+- `git pull + 网址`可拉取指定分支下的
+- 
