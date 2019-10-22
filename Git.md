@@ -12,3 +12,7 @@
 - `git config user.email`显示当前用户邮箱
 - `git config --global user.name "username"`修改用户名
 - `git config --global user.email haha@163.com`修改邮箱
+- `git log --oneline`这是查看当前推送了哪些
+- `git reset --hard +上面git log查出来的最新的`然后就可以重置，重置暂存区，然后将重置的覆盖本地工作区
+- + `git reset --soft + 上面git log查出来的最新的`重置指针
+  + `git reset --mixed + 上面git log的最新的`重置指针和暂存区
