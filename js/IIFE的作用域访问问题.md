@@ -31,3 +31,22 @@ var b = 10;
 })();
 ```
 
+
+
+## 各种题目
+
+- ```javascript
+  var obj1 = (function(){
+     var inner = '1-1';
+     return {
+     	inner:'1-2',
+     	say:function(){
+     		console.log(obj1) // return后的对象{inner:'1-2',say:[function]}
+     		console.log(this.inner) // '1-2'
+     	}
+     }
+  })();
+  obj1.say();
+  ```
+
+- 
