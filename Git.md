@@ -18,4 +18,26 @@
   + `git reset --mixed + 上面git log的最新的`重置指针和暂存区
 - `git pull origin master`获取`origin`路径下的master分支的最新代码
 - `git pull + 网址`可拉取指定分支下的
-- 
+
+### 初始化本地git仓库
+
+`git init`
+
+### 连接远程仓库
+
+`git remote add origin http:XXXXX`
+
+### 合并远程仓库步骤
+
+`git init`初始化仓库
+
+`git remote add origin http:xxx`连接远程仓库
+
+`git pull origin master`将远程master分支的拉下来
+
+`git checkout -b dev`在本地创建dev分支并切换过去
+
+`git merge master`将本地dev分支和master分支合并
+
+`git push` 提交上去
+
