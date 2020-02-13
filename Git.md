@@ -19,6 +19,7 @@
   + `git reset HEAD` 也是清空缓存区的
 - `git pull origin master`获取`origin`路径下的master分支的最新代码
 - `git pull + 网址`可拉取指定分支下的
+- `git push --set-upstream origin +分支名 `中`--set-upstream origin +分支名`是本地分支与远程分支建立联系。
 
 ### 初始化本地git仓库
 
@@ -29,6 +30,8 @@
 `git remote add origin http:XXXXX`
 
 ### 合并远程仓库步骤
+
+#### 第一种方式
 
 `git init`初始化仓库
 
@@ -41,4 +44,18 @@
 `git merge master`将本地dev分支和master分支合并
 
 `git push` 提交上去
+
+#### 第二种方式
+
+`git init`
+
+`git add .`
+
+`git commit -m "XXX"`
+
+`git remote add origin +XXX`
+
+`git checkout -b +分支名`
+
+`git push --set-upstream origin +分支名`
 
