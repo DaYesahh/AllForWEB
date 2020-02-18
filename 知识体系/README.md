@@ -4,7 +4,7 @@
 
 1. vue双向绑定
 
-![image-20200218204316552](/Users/xiongzhigang/Library/Application Support/typora-user-images/image-20200218204316552.png)
+![image-20200218204316552](./images/image-20200218204316552.png)
 
 complie什么情况下使用。原理。
 
