@@ -4,7 +4,7 @@
 
 1. vue双向绑定
 
-![image-20200218204316552](./images/image-20200218204316552.png)
+![image-20200218204316552](https://github.com/DaYesahh/AllForWEB/blob/master/%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/images/image-20200218204316552.png)
 
 complie什么情况下使用。原理。
 
