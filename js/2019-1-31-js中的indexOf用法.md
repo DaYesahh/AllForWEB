@@ -11,23 +11,23 @@ layout: post
 
 ## 解释
 
-这个方法不仅可以放在**字符串**中使用，还可以在**数组**中使用，但是在Number类型中是无法使用的
-indexOf()方法可以返回某个指定字符串值在字符串或数组中**首次**出现的位置，位置是从0开始的
+这个方法不仅可以放在**字符串**中使用，还可以在**数组**中使用，但是在`Number`类型中是无法使用的
+`indexOf()`方法可以返回某个指定字符串值在字符串或数组中**首次**出现的位置，位置是从0开始的
 
 
 ## 语法
 ### 语法表现形式
-- stringObject.indexOf(searchName,fromindex)
-- arrayObject.indexOf(searchName,fromindex)
+- `stringObject.indexOf(searchName,fromindex)`
+- `arrayObject.indexOf(searchName,fromindex)`
 
 ### 语法注意事项
-- stringObject：想要在哪个字符串中使用
-- arrayObject：想要在哪个数组中使用
-- searchName：想要检索的字符串值或数组项
-- fromindex：是从哪个位置开始检索，可以写也可以不写，不写的时候就默认是从0开始检索
+- `stringObject`：想要在哪个字符串中使用
+- `arrayObject`：想要在哪个数组中使用
+- `searchName`：想要检索的字符串值或数组项
+- `frominde`x：是从哪个位置开始检索，可以写也可以不写，不写的时候就默认是从0开始检索
 
 ## 兼容性
-- 数组中的indexOf属性是ES5的规范，只有IE8及更早的版本不支持该方法。
+- 数组中的`indexOf`属性是ES5的规范，只有IE8及更早的版本不支持该方法。
 
 ### 兼容性的解决方案
 #### 一、如果只是检测数组中是否含有此项，则可以先转化成字符串

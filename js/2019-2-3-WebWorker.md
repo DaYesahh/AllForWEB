@@ -43,28 +43,31 @@ layout: post
  + ```javascript
     worker.postMessage('hello world') // 传递字符串举例
     worker.postMessage({method:'echo',args:['Work']}) // 传递对象举例
-   ``` 
- + 主线程向Worker传递的数据类型可以是各种数据类型，甚至是二进制数据  
-- 主线程通过`onmessage`指定监听函数，接收子线程发回来的消息
- + ```javascript
- worker.onmessage = function (event){
- 	console.log('Received message' + event.data) //可以打印看看还有什么其他属性
- 	dosomething() // 推荐的编程方式
- }
- function dosomething(){
- 	// 执行任务
- 	worker.postMessage('Work done')
- }
- ```
-- 关闭Worker
- + ```javascript
- worker.terminate()
- ```
+    ```
+
++ 主线程向`Worker`传递的数据类型可以是各种数据类型，甚至是二进制数据 
+
++ 主线程通过`onmessage`指定监听函数，接收子线程发回来的消息
+
+    ```javascript
+     worker.onmessage = function (event){
+     	console.log('Received message' + event.data) //可以打印看看还有什么其他属性
+     	dosomething() // 推荐的编程方式
+     }
+     function dosomething(){
+     	// 执行任务
+     	worker.postMessage('Work done')
+     }
+    ```
+- 关闭`Worker`
+ + `worker.terminate()`
 
 ### Worker线程处的用法
+
 - Worker线程内需要一个监听函数，监听message事件
- + ```javascript
- // self表示子线程自身，即子线程的全局对象
+
+ ```javascript
+// self表示子线程自身，即子线程的全局对象
  self.addEventListener('message', function(e){
  	self.postMessage('You said:'+ e.data)
  })
@@ -91,10 +94,12 @@ layout: post
   ```
  - Worker内部加载其他脚本
   + ```javascript
-  importScripts('script1.js',...) //可以加载多个
-  ```
- - 错误处理 
-  + 同上，无论是主线程中的Worker还是子线程Worker内部，当Worker发生错误的时候，均可以监听并且触发error事件
+      importScripts('script1.js',...) //可以加载多个
+      ```
+
++ 错误处理 
+
++ + 同上，无论是主线程中的Worker还是子线程Worker内部，当Worker发生错误的时候，均可以监听并且触发error事件
   ```javascript
   worker.onerror(function (event){
   	console.log([
@@ -107,9 +112,9 @@ layout: post
   		})
   ```
  - 关于Worker的关闭事件
-  上述提到了两种，一种是主线程关系Worker，一种是Worker自我关闭，分别是：
-  + worker.terminate()
-  + self.close()
+    上述提到了两种，一种是主线程关系Worker，一种是Worker自我关闭，分别是：
+  + `worker.terminate()`
+  + `self.close()`
 
 ### 数据通信
 - 主线程与Worker之间的通信是拷贝关系，是传值而不是传地址。所以Worker对数据的修改不会影响到主线程，主线程只需要接收最终结果即可。
@@ -165,14 +170,14 @@ worker.onmessage = function (e){
 ```
 
 ### 使用worker的建议
-- 使用多少个worker？
+- 使用多少个1worker1？
  + 只要是线程必将耗费资源，那么开启多少个worker才合适呢？
  + 采用`navigator.hardwareConcurrency`，其表示机器支持的并行最大任务数
- + 还有一种动态监测Worker数量的方式：https://github.com/oftn-oswg/core-estimator。
-- 优化worker与主线程通信开销
+ + 还有一种动态监测`Worker`数量的方式：https://github.com/oftn-oswg/core-estimator。
+- 优化`worker`与主线程通信开销
  + 前面提到数据通信是通过拷贝的方式，如果数据量大，消耗的时长也长。解决办法是：
-  - 先通过JSON.stringify将对象序列化，接收之后再用JSON.parse还原。
-  - 因为：stringify + 传递字符串的耗时 < 传递对象的耗时
+  - 先通过`JSON.stringify`将对象序列化，接收之后再用`JSON.parse`还原。
+  - 因为：`stringify `+ 传递字符串的耗时 < 传递对象的耗时
   ```javascript
   // 操作像素
     var imageData = context.createImageData(img.width, img.height);
