@@ -4,15 +4,15 @@
 
 其特点如下：
 
-- 对象的状态不受外界影响。```Promise```对象代表一个**异步操作**，有三种状态：```pending(进行中)```、```fulfilled()已成功```和```rejected(已失败)```。注意：其状态只要异步操作才会使其改变！参考其名字！
-- 状态一旦改变，就不会再变，任何时候都可以得到这个结果。```Promise```对象状态改变，两种可能：从```pending```变为```fulfilled```和从```pending```变为```rejected```。只要这两种情况发生，状态便凝固了，不会再改变！这时称为```resolved(已定型)```。如果改变已经发生，即使再对```Promise```对象添加回调函数，也会立即得到这个结果。
-- 日常使用为了方便：```resolved```统一指```fulfilled```状态，不包含```rejected```状态。
+- 对象的状态不受外界影响。`Promise`对象代表一个**异步操作**，有三种状态：`pending(进行中)`、`fulfilled()已成功`和`rejected(已失败)`。注意：其状态只要异步操作才会使其改变！参考其名字！
+- 状态一旦改变，就不会再变，任何时候都可以得到这个结果。`Promise`对象状态改变，两种可能：从`pending`变为`fulfilled`和从`pending`变为`rejected`。只要这两种情况发生，状态便凝固了，不会再改变！这时称为`resolved(已定型)`。如果改变已经发生，即使再对`Promise`对象添加回调函数，也会立即得到这个结果。
+- 日常使用为了方便：`resolved`统一指`fulfilled`状态，不包含`rejected`状态。
 - 缺点：
-  + 无法取消```Promise```
+  + 无法取消`Promise`
   + 如果未设置回调函数，其内部抛出的错误，不会反应到外部。
-  + 当处于```pending```状态时，无法得到目前进展到哪一阶段。
+  + 当处于`pending`状态时，无法得到目前进展到哪一阶段。
 
-## ```Promise```语法
+## `Promise`语法
 
 ```javascript
 // Promise实例化的时候，接收一个函数作参数，而函数有两个参数：resolve、reject。resolve是将**Promise对象**，从未完成变为成功。而reject是从未完成变为失败。
@@ -27,7 +27,7 @@ const promise = new Promise(function(resolve, reject) {
 });
 ```
 
-- 关于```then```：
+- 关于`then`：
 
   ```javascript
   // Promise实例生成以后，Promise参数函数中的状态函数，执行以后是否成功，会调用then
@@ -58,9 +58,9 @@ const promise = new Promise(function(resolve, reject) {
   // 此时p2的状态由p1决定
   ```
 
-  - 调用```resolve```或```reject```并不会终结```Promise```参数的执行。
+  - 调用`resolve`或`reject`并不会终结`Promise`参数的执行。
 
-## ```Promsie.prototype.then()```
+## `Promsie.prototype.then()`
 
 ```javascript
 Promsie实例的then方法，是定义在原型对象Promise.prototype上的。
@@ -68,9 +68,9 @@ Promsie实例的then方法，是定义在原型对象Promise.prototype上的。
 
 - then可以开启链式写法，前一个then方法将返回结果作为参数（如果该参数是一个Promise对象，则后一个回调函数会等待该Promise对象状态改变再调用）传入第二个回调函数。
 
-## ```Promise.prototype.catch()```
+## `Promise.prototype.catch()`
 
-是```.then(null,rejection)```或```.then(undefined,rejection)```的别名。
+是`.then(null,rejection)`或`.then(undefined,rejection)`的别名。
 
 ```javascript
 getJSON('/posts.json').then(function(posts) {
@@ -85,13 +85,13 @@ getJSON('/posts.json').then(function(posts) {
 
 - promise会吃掉错误
 
-## ```Promise.prototype.finally()```
+## `Promise.prototype.finally()`
 
-不管```Promise```对象最后状态如何，都会执行的操作。
+不管`Promise`对象最后状态如何，都会执行的操作。
 
-- **不接受任何参数！**，无法确定其前面的```Promise```的状态时```fulfilled```还是```rejected```。应执行与状态无关的，不依赖于```Promise```的执行结果
+- **不接受任何参数！**，无法确定其前面的`Promise`的状态时`fulfilled`还是`rejected`。应执行与状态无关的，不依赖于`Promise`的执行结果
 
-- 本质是```then```的特例。
+- 本质是`then`的特例。
 
   ```javascript
   // resolve 的值是 undefined
@@ -108,7 +108,7 @@ getJSON('/posts.json').then(function(posts) {
   
   ```
 
-## ```Promsie.all()```
+## `Promsie.all()`
 
 `Promise.all`方法用于将多个 Promise 实例，包装成一个新的 Promise 实例。
 
@@ -272,7 +272,7 @@ console.log('next');
 
 ## 其他异步与promise的关系
 
-### ```setTimeout```
+### `setTimeout`
 
 看如下代码：
 
