@@ -59,3 +59,27 @@
 
 `git push --set-upstream origin +分支名`
 
+
+
+fork后拉源仓库，更新最新代码
+
+`git remote add origin https:XXX`
+
+`git remote add upstream https:XX`
+
+`git remote -v` 执行完这个以后，会有四个，两个origin 两个upstream。
+
+fork的意思是在远程上复制，clone是远程复制到本地。而origin是自己的远程repo，而upstream是人家的远程repo，也就是被fork的repo
+
+`git chekout branch -b branch_mine` 建立个分支
+
+`git merge master`与master合并
+
+`git add`将本地提交到暂存区
+
+`git stash`： git stash作用的范围包括工作区和暂存区中的内容，也就是说没有提交的内容都会保存至堆栈中。 
+
+`git pull upstream master`拉取源远程仓库
+
+`git stash apply` 将堆栈中的内容应用到当前目录，不同于git stash pop，该命令不会将内容从堆栈中删除，也就说该命令能够将堆栈的内容多次应用到工作目录中，适应于多个分支的情况。 
+
