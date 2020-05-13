@@ -86,3 +86,8 @@ fork的意思是在远程上复制，clone是远程复制到本地。而origin�
 
 `git stash apply` 将堆栈中的内容应用到当前目录，不同于git stash pop，该命令不会将内容从堆栈中删除，也就说该命令能够将堆栈的内容多次应用到工作目录中，适应于多个分支的情况。 
 
+`git add .`如果提示有changes不是staged changes 的时候，执行git add .进行存储
+
+`git commit -m "XXX"`
+
+`git push origin branch_lxp`
