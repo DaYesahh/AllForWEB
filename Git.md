@@ -22,6 +22,7 @@
 - `git push --set-upstream origin +分支名 `中`--set-upstream origin +分支名`是本地分支与远程分支建立联系。
 - `git stash` git stash作用的范围包括工作区和暂存区中的内容，也就是说没有提交的内容都会保存至堆栈中。
 - `git stash apply` 将堆栈中的内容应用到当前目录，不同于git stash pop，该命令不会将内容从堆栈中删除，也就说该命令能够将堆栈的内容多次应用到工作目录中，适应于多个分支的情况。 
+- `git stash apply stash@{num}`可以拉回stash后的代码，而且还保存在缓存区。num为执行`git stash list`后的前缀。
 - `git stash pop`同上，会删除堆栈中的内容
 
 ### 初始化本地git仓库
